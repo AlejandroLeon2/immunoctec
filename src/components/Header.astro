@@ -1,0 +1,169 @@
+---
+import dataImmunotecSoledad from "../data/immunocal.json";
+import Boton from "./Boton.astro";
+interface NavLink {
+  label: string;
+  href: string;
+  isActive?: boolean;
+}
+
+interface Props {
+  logoAlt?: string;
+  navLinks?: NavLink[];
+  ctaText?: string;
+  ctaHref?: string;
+}
+
+const {
+  logoAlt = "Logo",
+  navLinks = [
+    { label: "Inicio", href: "#inicio", isActive: true },
+    { label: "Productos", href: "#productos" },
+        { label: "Investigacion", href: "#investigacion" },
+                { label: "Testimonios", href: "#testimonios" },
+    { label: "Sobre Nosotros", href: "#sobre-nosotros" },
+  ],
+  ctaText = "Comenzar",
+  ctaHref = "/comenzar",
+} = Astro.props;
+---
+
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <nav
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+    aria-label="Navegación principal"
+  >
+    <div class="flex justify-between items-center h-16 sm:h-20">
+      <div class="flex-shrink-0">
+        <a
+          href="/"
+          class="flex items-center gap-3 hover:opacity-80 transition-opacity"
+        >
+          <img
+            src="/images/immunotec.svg"
+            alt={logoAlt}
+            class="h-8 sm:h-10 min-w-50 lg:w-auto"
+            width="40"
+            height="40"
+          />
+        </a>
+      </div>
+
+      <ul class="hidden lg:flex items-center gap-1 lg:gap-2">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class={`px-3 text-black lg:px-4 py-2 rounded-lg text-sm lg:text-base font-medium
+                ${
+                  link.isActive
+                    ? " bg-blue-50"
+                    : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+                }`}
+                aria-current={link.isActive ? "page" : undefined}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="flex items-center gap-4">
+        <Boton url="#contacto" texto="Contacto" extra="hidden lg:flex" />
+        <button
+          class="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          id="mobile-menu-button"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              class="menu-icon"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+            <path
+              class="close-icon hidden"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      id="mobile-menu"
+      class="lg:hidden hidden border-t border-gray-200"
+      aria-label="Menú móvil"
+    >
+      <ul class="py-4 space-y-1">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class={`block px-4 py-3 rounded-lg text-base font-medium transition-colors
+                ${
+                  link.isActive
+                    ? "text-black bg-blue-50"
+                    : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+                }`}
+                aria-current={link.isActive ? "page" : undefined}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+        <li class="pt-2 flex text-center">
+          <Boton url="#contacto" texto="Contacto" extra="lg:hidden w-full" />
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const menuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuIcon = menuButton?.querySelector(".menu-icon");
+  const closeIcon = menuButton?.querySelector(".close-icon");
+
+  menuButton?.addEventListener("click", () => {
+    const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+
+    menuButton.setAttribute("aria-expanded", String(!isExpanded));
+    mobileMenu?.classList.toggle("hidden");
+    menuIcon?.classList.toggle("hidden");
+    closeIcon?.classList.toggle("hidden");
+  });
+
+  document.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+    if (!target.closest("nav") && !mobileMenu?.classList.contains("hidden")) {
+      mobileMenu?.classList.add("hidden");
+      menuButton?.setAttribute("aria-expanded", "false");
+      menuIcon?.classList.remove("hidden");
+      closeIcon?.classList.add("hidden");
+    }
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !mobileMenu?.classList.contains("hidden")) {
+      mobileMenu?.classList.add("hidden");
+      menuButton?.setAttribute("aria-expanded", "false");
+      menuIcon?.classList.remove("hidden");
+      closeIcon?.classList.add("hidden");
+      menuButton?.focus();
+    }
+  });
+</script>

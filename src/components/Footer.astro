@@ -1,0 +1,241 @@
+---
+import TiktokIcon from "../icons/TiktokIcon.astro";
+import WhatsappIcon from "../icons/WhatsappIcon.astro";
+interface FooterLink {
+  label: string;
+  href: string;
+}
+
+interface FooterSection {
+  title: string;
+  links: FooterLink[];
+}
+
+interface SocialLink {
+  name: string;
+  href: string;
+  icon: string;
+}
+
+interface Props {
+  description?: string;
+  sections?: FooterSection[];
+  socialLinks?: SocialLink[];
+  showNewsletter?: boolean;
+  copyrightText?: string;
+}
+
+const {
+  description = "Immunotec es una empresa Canadiense dedicada a la investigación del sistema inmunológico por más de 45 años.",
+  sections = [
+    {
+      title: "Comprar",
+      links: [
+        {
+          label: "Todos los productos",
+          href: "https://www.immunotec.com/es-PE/soledadm2024/products",
+        },
+        {
+          label: "Envejecimiento saludable",
+          href: "https://www.immunotec.com/es-PE/soledadm2024/products/categories/healthy-aging",
+        },
+        { label: "Testimonios", href: "/testimonios" },
+      ],
+    },
+    {
+      title: "Acerca de",
+      links: [
+        {
+          label: "Estudios",
+          href: "https://www.immunotec.com/es-PE/soledadm2024/studies-and-standards",
+        },
+        {
+          label: "Nuestros atletas",
+          href: "https://www.immunotec.com/es-PE/soledadm2024/athletes",
+        },
+        {
+          label: "Preguntas frecuentes",
+          href: "https://www.immunotec.com/es-PE/soledadm2024/faqs",
+        }
+      ],
+    },
+    {
+      title: "Legal",
+      links: [
+        { label: "Privacidad", href: "/privacidad" },
+        { label: "Términos", href: "/terminos" },
+      ],
+    },
+  ],
+  socialLinks = [
+    { name: "Facebook", href: "#", icon: "facebook" },
+    { name: "Tiktok", href: "#", icon: "tiktok" },
+    { name: "Instagram", href: "#", icon: "instagram" },
+    { name: "YouTube", href: "#", icon: "youtube" },
+    { name: "Whatsapp", href: "#", icon: "whatsapp" },
+  ],
+  showNewsletter = true,
+  copyrightText,
+} = Astro.props;
+---
+
+<footer class="bg-gray-900 text-gray-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12">
+      <div class="lg:col-span-2">
+        <a
+          href="/"
+          class="inline-flex items-center gap-3 mb-4 hover:opacity-80 transition-opacity"
+        >
+          <svg
+            width="226"
+            height="26"
+            viewBox="0 0 226 26"
+            fill="currentcolor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_701_3387)">
+              <path d="M55.6543 0.0283203H58.8575V25.5008H55.6543V0.0283203Z"
+              ></path>
+              <path
+                d="M62.3766 7.07726H65.2634V9.71466H65.3305C66.4718 7.93082 68.4282 6.65527 70.7492 6.65527C73.0701 6.65527 74.7772 7.79655 75.554 9.93524H75.6212C76.8008 7.83491 79.0066 6.65527 81.2508 6.65527C84.5308 6.65527 86.8421 8.7556 86.8421 12.5726V25.5007H83.9554V12.7069C83.9554 10.4244 82.4209 9.07209 80.5699 9.07209C78.1818 9.07209 76.0432 11.1437 76.0432 14.0208V25.4911H73.1564V12.6973C73.1564 10.4148 71.8713 9.0625 69.9819 9.0625C67.7377 9.0625 65.2442 11.1341 65.2442 14.0112V25.4815H62.3574V7.07726H62.3766Z"
+              ></path>
+              <path
+                d="M89.777 7.07726H92.6638V9.71466H92.7309C93.8722 7.93082 95.8286 6.65527 98.1495 6.65527C100.47 6.65527 102.178 7.79655 102.954 9.93524H103.022C104.201 7.83491 106.407 6.65527 108.651 6.65527C111.931 6.65527 114.243 8.7556 114.243 12.5726V25.5007H111.356V12.7069C111.356 10.4244 109.821 9.07209 107.97 9.07209C105.582 9.07209 103.444 11.1437 103.444 14.0208V25.4911H100.557V12.6973C100.557 10.4148 99.2716 9.0625 97.3823 9.0625C95.1381 9.0625 92.6446 11.1341 92.6446 14.0112V25.4815H89.7578V7.07726H89.777Z"
+              ></path>
+              <path
+                d="M128.888 25.5006V22.9687H128.821C127.507 24.7525 125.934 25.9226 123.258 25.9226C119.479 25.9226 117.062 23.64 117.062 19.8326V7.07715H119.949V19.7559C119.949 22.1439 121.484 23.5345 124.083 23.5345C127.008 23.5345 128.888 21.3287 128.888 18.4036V7.07715H131.774V25.491H128.888V25.5006Z"
+              ></path>
+              <path
+                d="M137.682 9.50367H137.749C139.063 7.75819 140.923 6.65527 143.589 6.65527C147.435 6.65527 149.785 8.7556 149.785 12.5726V25.5007H146.898V12.822C146.898 10.434 145.335 9.08168 142.736 9.08168C139.811 9.08168 137.682 11.1532 137.682 14.1743V25.5007H134.795V7.07726H137.682V9.50367Z"
+              ></path>
+              <path
+                d="M151.684 16.3134C151.684 10.9715 155.107 6.62695 160.593 6.62695C166.079 6.62695 169.464 10.9715 169.464 16.3134C169.464 21.6554 166.117 25.9999 160.593 25.9999C155.069 25.9999 151.684 21.6554 151.684 16.3134ZM166.501 16.3134C166.501 12.247 164.506 9.00541 160.593 9.00541C156.68 9.00541 154.647 12.247 154.647 16.3134C154.647 20.3798 156.68 23.5831 160.593 23.5831C164.506 23.5831 166.501 20.3798 166.501 16.3134Z"
+              ></path>
+              <path
+                d="M169.926 7.07768H172.602V1.27539H175.488V7.07768H179.056V9.42736H175.488V21.3964C175.488 22.6815 176.169 23.1035 177.339 23.1035C177.905 23.1035 178.548 22.9596 178.874 22.8541H178.979V25.3477C178.298 25.4915 177.521 25.597 176.658 25.597C174.309 25.597 172.602 24.638 172.602 22.0389V9.42736H169.926V7.07768Z"
+              ></path>
+              <path
+                d="M179.929 16.3134C179.929 10.9715 183.42 6.62695 188.657 6.62695C194.181 6.62695 197.135 10.9043 197.135 16.9943H182.883C183.094 20.7347 185.127 23.5831 188.829 23.5831C191.505 23.5831 193.279 22.2979 193.922 19.8044H196.732C195.878 23.7557 192.992 25.9999 188.82 25.9999C183.19 25.9999 179.91 21.6554 179.91 16.3134H179.929ZM182.96 14.8173H194.037C193.855 11.1441 191.975 8.89991 188.657 8.89991C185.338 8.89991 183.382 11.4606 182.96 14.8173Z"
+              ></path>
+              <path
+                d="M198.025 16.3134C198.025 10.9715 201.449 6.62695 206.935 6.62695C211.28 6.62695 214.166 9.1205 214.809 13.043H211.884C211.452 10.5495 209.707 9.015 206.935 9.015C203.022 9.015 200.989 12.2566 200.989 16.323C200.989 20.3894 203.022 23.5926 206.935 23.5926C209.927 23.5926 211.711 21.8855 211.96 19.0371H214.809C214.416 23.4584 211.529 26.0191 206.935 26.0191C201.449 26.0191 198.025 21.6745 198.025 16.3326V16.3134Z"
+              ></path>
+              <path
+                d="M218.166 21.9717C218.166 19.9481 219.729 18.4424 221.628 18.4424C223.527 18.4424 225.1 19.9385 225.1 21.9717C225.1 24.0049 223.537 25.501 221.628 25.501C219.72 25.501 218.166 24.0145 218.166 21.9717ZM224.505 21.9717C224.505 20.2358 223.297 18.9603 221.638 18.9603C219.979 18.9603 218.77 20.2454 218.77 21.9717C218.77 23.698 219.979 24.9831 221.638 24.9831C223.297 24.9831 224.505 23.7172 224.505 21.9717ZM220.276 20.0632H221.993C222.674 20.0632 223.172 20.4948 223.172 21.1086C223.172 21.5305 222.952 21.8854 222.472 22.0005V22.0197C222.837 22.1252 223.009 22.3266 223.057 22.7773C223.115 23.3048 223.086 23.698 223.22 23.7556V23.8035H222.511C222.405 23.7556 222.367 23.3336 222.347 22.9404C222.328 22.5471 222.098 22.2978 221.628 22.2978H221.014V23.7939H220.276V20.0632ZM221.014 21.7224H221.83C222.232 21.7224 222.443 21.5018 222.443 21.1949C222.443 20.888 222.242 20.6674 221.83 20.6674H221.014V21.7128V21.7224Z"
+              ></path>
+              <path
+                d="M6.54051 0L4.37305 2.16747L14.9227 12.7075V25.5013H17.982V11.4415L6.54051 0Z"
+              ></path>
+              <path
+                d="M2.15745 4.29958L-0.00585938 6.46289L8.60671 15.0755L10.77 12.9121L2.15745 4.29958Z"
+              ></path>
+              <path
+                d="M35.4471 2.16747L33.2892 0L21.8477 11.4415V25.5013H24.907V12.7075L35.4471 2.16747Z"
+              ></path>
+              <path
+                d="M37.6614 4.3015L29.0488 12.9141L31.2121 15.0774L39.8247 6.46481L37.6614 4.3015Z"
+              ></path>
+            </g>
+            <defs>
+              <clipPath id="clip0_701_3387">
+                <rect width="225.1" height="26" fill="black"></rect>
+              </clipPath>
+            </defs>
+          </svg>
+        </a>
+        <p class="text-sm leading-relaxed mb-6 text-gray-400">
+          {description}
+        </p>
+
+        <div class="flex gap-4">
+          {
+            socialLinks.map((social) => (
+              <a
+                href={social.href}
+                class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors"
+                aria-label={social.name}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {social.icon === "facebook" && (
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                )}
+                {social.icon === "tiktok" && <TiktokIcon size="20" />}
+                {social.icon === "instagram" && (
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                )}
+                {social.icon === "youtube" && (
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                )}
+                {social.icon === "whatsapp" && <WhatsappIcon size="20" />}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <div
+        class="w-full flex flex-col sm:flex-row gap-8 col-span-1 lg:col-span-4 justify-around"
+      >
+        {
+          sections.map((section) => (
+            <div class="">
+              <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
+                {section.title}
+              </h3>
+              <ul class="space-y-3">
+                {section.links.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      class="text-sm hover:text-white transition-colors inline-block"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Newsletter Section -->
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <p
+        id="footer-text"
+        class="text-xs wrap-break-word justify-center w-auto text-center md:gap-2 text-gray-500"
+      >
+
+        <span id="year"></span> Página creada por <strong >
+          Pedro Alejandro</strong
+        > para <strong>Soledad Consultora Immunotec</strong> —
+        <a
+          href="https://wa.me/51924932128?text=Hola%20Pedro%2C%20vi%20tu%20sitio%20y%20me%20interesa%20saber%20m%C3%A1s%20sobre%20tus%20servicios%20de%20dise%C3%B1o%20web"
+          class="hover:underline hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Contacto
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
+<script>
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) {
+    yearSpan.textContent = `© ${new Date().getFullYear()}`;
+  }
+</script>

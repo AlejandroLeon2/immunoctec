@@ -1,11 +1,37 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Slider from "../components/Slider.astro";
+import SliderDeportistas from "../components/SliderDeportistas.astro";
+import Hero from "../components/Hero.astro";
+import Productos from "../components/Productos.astro";
+import SectionProfesionales from "../components/SectionProfesionales.astro";
+import SectionReferidos from "../components/SectionReferidos.astro";
+import dataImmunotecSoledad from "../data/immunocal.json";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const productos = dataImmunotecSoledad.immunocaltecSoledad.productosImmunotec;
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="hola" description="hola" ocultar={true}>
+  <Slider images={dataImmunotecSoledad.immunocaltecSoledad.banners} />
+  <main
+    class="px-6 max-w-7xl mx-auto min-h-screen flex flex-col justify-center"
+  >
+    <Hero dataImmunocal={dataImmunotecSoledad.immunocaltecSoledad.whatsapp} />
+
+    <SliderDeportistas
+      testimonials={dataImmunotecSoledad.immunocaltecSoledad.testimonials}
+    />
+    <section>
+      <img src="/images/info.jpg" alt="" class="" />
+    </section>
+<SectionProfesionales/>
+    <section id="productos" class="gap-8 scroll-mt-24 space-y-4">
+    {
+      productos.map((producto, index) => (
+        <Productos suplemento={producto} reverse={index % 2 !== 0} />
+      ))
+    }
+    </section>
+<SectionReferidos/>
+  </main>
 </Layout>

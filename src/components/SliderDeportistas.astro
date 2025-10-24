@@ -1,0 +1,262 @@
+---
+import Title from "../components/Title.astro";
+interface Testimonial {
+  quote: string;
+  author: string;
+  role: string;
+  organization: string;
+  yearsUsing: string;
+  image: string;
+  link?: string;
+}
+
+interface Props {
+  headline?: string;
+  highlightText?: string;
+  testimonials: Testimonial[];
+  autoplay?: boolean;
+  interval?: number;
+}
+
+const {
+  headline = "Si es bueno para ellos,",
+  highlightText = "es bueno para ti",
+  testimonials,
+  autoplay = false,
+  interval = 6000,
+} = Astro.props;
+---
+
+<section id="testimonios" class="testimonial-slider scroll-mt-24 my-8 flex flex-col justify-center items-center  space-y-4">
+<Title titulo="¡Disfruta de la misma nutrición utilizada por los atletas olímpicos y de clase mundial!"/>
+  <div
+    class=" mx-auto py-4  w-full sm:px-6  flex flex-col lg:flex-row gap-8 "
+  >
+
+    <div class="sm:max-w-xs w-full flex sm:flex-col space-y-4 ">
+      <h3
+        class="text-3xl font-semibold leading-tight text-gray-900 max-w-md"
+      >
+        {headline}
+        <span class="underline decoration-amber-400 decoration-4 underline-offset-2 ">
+          {highlightText}
+        </span>
+      </h3>
+
+      <div class="flex gap-4">
+        <button
+          class="testimonial-prev w-12 h-12 rounded-full border-2 border-bases text-bases
+                 hover:bg-bases-hover hover:text-white transition boton
+                 flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed"
+          aria-label="Testimonio anterior"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+
+        <button
+          class="testimonial-next w-12 h-12 rounded-full bg-bases text-white
+                 hover:bg-bases-hover transition boton shadow-lg
+                 flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed"
+          aria-label="Siguiente testimonio"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+
+    <div class="max-w-xl xl:max-w-2xl w-full space-y-8 mx-auto overflow-hidden">
+      <div
+        class="testimonial-track flex transition-transform duration-700 ease-out"
+      >
+        {
+          testimonials.map((testimonial, index) => (
+            <div class="min-w-full flex flex-col sm:flex-row gap-6 px-4 items-center">
+              <img
+                src={testimonial.image}
+                alt={`Foto de ${testimonial.author}`}
+                loading={index === 0 ? "eager" : "lazy"}
+                class="w-48 h-48  object-cover "
+              />
+              <div class="space-y-4">
+                <p class="text-base sm:text-lg text-gray-700 leading-relaxed">
+                  “{testimonial.quote}”
+                </p>
+                <div class="space-y-1">
+                  <p class="text-xl font-semibold text-gray-900">
+                    {testimonial.author}
+                  </p>
+                  <p class="text-base text-gray-600">{testimonial.role}</p>
+                  <p class="text-base text-gray-600">
+                    {testimonial.organization}
+                  </p>
+                  <p class="text-sm text-gray-500">{testimonial.yearsUsing}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+   
+      <div class="flex justify-center gap-2">
+        {
+          testimonials.map((_, index) => (
+            <button
+              class="testimonial-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-300"
+              data-index={index}
+              aria-label={`Ir al testimonio ${index + 1}`}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonial-dot.active {
+    width: 2rem;
+    background-color:#2584FF;
+  }
+</style>
+
+<script define:vars={{ autoplay, interval }}>
+  class TestimonialSlider {
+    constructor(container) {
+      this.slider = container;
+      this.track = container.querySelector(".testimonial-track");
+      this.dots = container.querySelectorAll(".testimonial-dot");
+      this.prevBtn = container.querySelector(".testimonial-prev");
+      this.nextBtn = container.querySelector(".testimonial-next");
+      this.slides = container.querySelectorAll(".testimonial-track > *");
+      this.index = 0;
+      this.timer = null;
+
+      this.init();
+    }
+
+    init() {
+      this.update();
+
+      this.dots.forEach((dot, i) =>
+        dot.addEventListener("click", () => this.goTo(i))
+      );
+      this.prevBtn?.addEventListener("click", () => this.prev());
+      this.nextBtn?.addEventListener("click", () => this.next());
+
+      this.setupSwipe();
+      this.setupKeyboard();
+
+      if (autoplay) {
+        this.startAutoplay();
+        this.slider.addEventListener("mouseenter", () => this.stopAutoplay());
+        this.slider.addEventListener("mouseleave", () => this.startAutoplay());
+
+        new IntersectionObserver(([entry]) => {
+          entry.isIntersecting ? this.startAutoplay() : this.stopAutoplay();
+        }).observe(this.slider);
+      }
+    }
+
+    setupSwipe() {
+      let startX = 0;
+      const handleSwipe = (endX) => {
+        const diff = startX - endX;
+        if (Math.abs(diff) > 50) diff > 0 ? this.next() : this.prev();
+      };
+
+      this.slider.addEventListener(
+        "touchstart",
+        (e) => {
+          startX = e.touches[0].clientX;
+          this.stopAutoplay();
+        },
+        { passive: true }
+      );
+
+      this.slider.addEventListener("touchend", (e) => {
+        handleSwipe(e.changedTouches[0].clientX);
+        if (autoplay) this.startAutoplay();
+      });
+
+      this.slider.addEventListener("mousedown", (e) => {
+        startX = e.clientX;
+        this.stopAutoplay();
+        e.preventDefault();
+      });
+
+      document.addEventListener("mouseup", (e) => {
+        handleSwipe(e.clientX);
+        if (autoplay) this.startAutoplay();
+      });
+    }
+
+    setupKeyboard() {
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") this.prev();
+        if (e.key === "ArrowRight") this.next();
+      });
+    }
+
+    goTo(i) {
+      this.index = i;
+      this.update();
+    }
+
+    next() {
+      this.index = (this.index + 1) % this.slides.length;
+      this.update();
+    }
+
+    prev() {
+      this.index = (this.index - 1 + this.slides.length) % this.slides.length;
+      this.update();
+    }
+
+    update() {
+      this.track.style.transform = `translateX(-${this.index * 100}%)`;
+      this.dots.forEach((dot) => dot.classList.remove("active"));
+      this.dots[this.index]?.classList.add("active");
+      this.prevBtn.disabled = this.index === 0;
+      this.nextBtn.disabled = this.index === this.slides.length - 1;
+    }
+
+    startAutoplay() {
+      this.stopAutoplay();
+      this.timer = setInterval(() => this.next(), interval);
+    }
+
+    stopAutoplay() {
+      clearInterval(this.timer);
+      this.timer = null;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.querySelector(".testimonial-slider");
+    if (container) new TestimonialSlider(container);
+  });
+</script>

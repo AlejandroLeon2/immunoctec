@@ -1,0 +1,288 @@
+---
+type image = {
+  src: string;
+  alt: string;
+  title?: string;
+  description?: string;
+};
+interface Props {
+  images: image[];
+  autoplay?: boolean;
+  interval?: number;
+  showDots?: boolean;
+  showArrows?: boolean;
+  height?: string;
+}
+
+const {
+  images,
+  autoplay = false,
+  interval = 5000,
+  showDots = true,
+  showArrows = true,
+  height = "h-[600px]",
+} = Astro.props;
+---
+
+<section id="inicio" class="w-full mx-auto  scroll-mt-24 ">
+  <div class={`slider relative ${height}  overflow-hidden shadow-2xl group`}>
+    <div
+      class="slider-track flex h-full transition-transform duration-700 ease-out"
+    >
+      {
+        images.map((image, index) => (
+          <div class="slide min-w-full h-full relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60" />
+            <img
+              src={image.src}
+              alt={image.alt}
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    {
+      showArrows && (
+        <>
+          <button
+            class="slider-arrow-prev absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-20
+                 w-12 h-12 sm:w-14 sm:h-14 rounded-full 
+                 bg-white/90 hover:bg-white backdrop-blur-sm
+                 text-gray-900 shadow-xl
+                 flex items-center justify-center
+                 transition-all duration-300 
+                 opacity-0 group-hover:opacity-100
+                 hover:scale-110 active:scale-95"
+            aria-label="Anterior"
+          >
+            <svg
+              class="w-6 h-6 sm:w-7 sm:h-7"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+
+          <button
+            class="slider-arrow-next absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-20
+                 w-12 h-12 sm:w-14 sm:h-14 rounded-full 
+                 bg-white/90 hover:bg-white backdrop-blur-sm
+                 text-gray-900 shadow-xl
+                 flex items-center justify-center
+                 transition-all duration-300
+                 opacity-0 group-hover:opacity-100
+                 hover:scale-110 active:scale-95"
+            aria-label="Siguiente"
+          >
+            <svg
+              class="w-6 h-6 sm:w-7 sm:h-7"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </>
+      )
+    }
+
+    {
+      showDots && (
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2 sm:gap-3">
+          {images.map((images, index) => (
+            <button
+              class="slider-dot h-2 rounded-full transition-all duration-300 
+                   bg-white/50 hover:bg-white/80 backdrop-blur-sm"
+              data-index={index}
+              aria-label={`Ir a imagen ${index + 1}`}
+            />
+          ))}
+        </div>
+      )
+    }
+
+    {
+      autoplay && (
+        <div class="absolute top-0 left-0 right-0 h-1 bg-white/20 z-30">
+          <div class="progress-bar h-full bg-gradient-to-r from-blue-400 to-purple-500 w-0" />
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .slider-dot {
+    width: 8px;
+  }
+
+  .slider-dot.active {
+    width: 32px;
+    background: white !important;
+  }
+
+  @keyframes progress {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  .progress-bar.animating {
+    animation: progress linear;
+  }
+</style>
+
+<script define:vars={{ autoplay, interval }}>
+  class ModernSlider {
+    constructor(container) {
+      this.container = container;
+      this.track = container.querySelector(".slider-track");
+      this.slides = container.querySelectorAll(".slide");
+      this.dots = container.querySelectorAll(".slider-dot");
+      this.prevBtn = container.querySelector(".slider-arrow-prev");
+      this.nextBtn = container.querySelector(".slider-arrow-next");
+      this.progressBar = container.querySelector(".progress-bar");
+      this.currentIndex = 0;
+      this.autoplayTimer = null;
+
+      this.init();
+    }
+
+    init() {
+      this.updateSlide();
+
+      this.dots.forEach((dot, index) =>
+        dot.addEventListener("click", () => this.goToSlide(index))
+      );
+
+      this.prevBtn?.addEventListener("click", () => this.prev());
+      this.nextBtn?.addEventListener("click", () => this.next());
+
+      this.container.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") this.prev();
+        if (e.key === "ArrowRight") this.next();
+      });
+
+      this.setupSwipe();
+
+      if (autoplay) {
+        this.startAutoplay();
+        this.container.addEventListener("mouseenter", () =>
+          this.stopAutoplay()
+        );
+        this.container.addEventListener("mouseleave", () =>
+          this.startAutoplay()
+        );
+      }
+    }
+
+    setupSwipe() {
+      let startX = 0;
+
+      const handleSwipe = (endX) => {
+        const diff = startX - endX;
+        if (Math.abs(diff) > 50) diff > 0 ? this.next() : this.prev();
+      };
+
+      this.container.addEventListener(
+        "touchstart",
+        (e) => {
+          startX = e.touches[0].clientX;
+          this.stopAutoplay();
+        },
+        { passive: true }
+      );
+
+      this.container.addEventListener("touchend", (e) => {
+        handleSwipe(e.changedTouches[0].clientX);
+        if (autoplay) this.startAutoplay();
+      });
+
+      this.container.addEventListener("mousedown", (e) => {
+        startX = e.clientX;
+        this.stopAutoplay();
+      });
+
+      this.container.addEventListener("mouseup", (e) => {
+        handleSwipe(e.clientX);
+        if (autoplay) this.startAutoplay();
+      });
+    }
+
+    goToSlide(index) {
+      this.currentIndex = index;
+      this.updateSlide();
+      if (autoplay) this.animateProgressBar();
+    }
+
+    updateSlide() {
+      this.track.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+      this.dots.forEach((dot) => dot.classList.remove("active"));
+      this.dots[this.currentIndex]?.classList.add("active");
+    }
+
+    next() {
+      this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+      this.updateSlide();
+      if (autoplay) this.animateProgressBar();
+    }
+
+    prev() {
+      this.currentIndex =
+        (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+      this.updateSlide();
+      if (autoplay) this.animateProgressBar();
+    }
+
+    animateProgressBar() {
+      if (!this.progressBar) return;
+      this.progressBar.classList.remove("animating");
+      this.progressBar.style.width = "0%";
+
+      setTimeout(() => {
+        this.progressBar.classList.add("animating");
+        this.progressBar.style.animationDuration = `${interval}ms`;
+        this.progressBar.style.width = "100%";
+      }, 50);
+    }
+
+    startAutoplay() {
+      this.stopAutoplay();
+      this.animateProgressBar();
+      this.autoplayTimer = setInterval(() => this.next(), interval);
+    }
+
+    stopAutoplay() {
+      clearInterval(this.autoplayTimer);
+      this.autoplayTimer = null;
+      if (this.progressBar) {
+        this.progressBar.classList.remove("animating");
+        this.progressBar.style.width = "0%";
+      }
+    }
+  }
+
+  document.querySelectorAll(".slider").forEach((slider) => {
+    new ModernSlider(slider);
+  });
+</script>

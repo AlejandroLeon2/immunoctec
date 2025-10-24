@@ -1,0 +1,34 @@
+---
+import Title from "../components/Title.astro";
+import Boton from "../components/Boton.astro";
+import type { whatsapp } from "../types/tipos";
+interface Props {
+  dataImmunocal: whatsapp;
+}
+const { dataImmunocal } = Astro.props;
+---
+
+<section id="sobre-nosotros" class="py-8 space-y-4 scroll-mt-24 justify-center">
+  <div class="flex flex-col md:flex-row w-full justify-around">
+    <div class="flex flex-col max-w-lg items-center p-4 gap-8">
+      <Title titulo="¿Que es immunotec?" />
+      <p class="text-gray-700">
+        Immunotec es una empresa Canadiense dedicada a la investigación del
+        sistema inmunológico por más de 45 años, con presencia en 14 países.
+        Immunotec está aportando un mayor bienestar y una mayor prosperidad en
+        todo el mundo.
+      </p>
+      <Boton texto="Quiero ser socio" whatsapp={dataImmunocal} />
+    </div>
+
+    <iframe
+      class="h-auto w-full"
+      src="https://www.youtube.com/embed/OZtzCyUZYS8?si=eQoo8sHUKebz5fd3"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
+  </div>
+  <img src="/images/paises.png" alt="">
+</section>

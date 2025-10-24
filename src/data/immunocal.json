@@ -1,0 +1,163 @@
+{
+  "immunocaltecSoledad": {
+    "whatsapp": {
+      "numero": "932468013",
+      "mensaje": "Hola Soledad, estoy interesado en conocer más sobre los productos de Immunotec y cómo pueden mejorar mi bienestar."
+    },
+    "testimonials": [
+      {
+        "quote": "Desde que uso Immunocal, mi energía ha mejorado notablemente y me siento más resistente ante enfermedades.",
+        "author": "Joanna Muir",
+        "role": "Pentatleta Olímpica",
+        "organization": "Team GB",
+        "yearsUsing": "4 años usando Immunocal",
+        "image": "/images/deportista1.webp",
+        "link": "https://www.immunotec.com/es-PE/soledadm2024"
+      },
+      {
+        "quote": "Immunocal ha sido clave en mi recuperación post entrenamiento. Lo recomiendo a todos los atletas serios.",
+        "author": "Pat Tiernan",
+        "role": "Corredor de fondo",
+        "organization": "Atletismo Australia",
+        "yearsUsing": "3 años usando Immunocal",
+        "image": "/images/deportista2.webp",
+        "link": "https://www.immunotec.com/es-PE/soledadm2024"
+      },
+      {
+        "quote": "Es el único suplemento que realmente ha marcado una diferencia en mi rendimiento y bienestar general.",
+        "author": "Kate French",
+        "role": "Medallista Olímpica",
+        "organization": "Pentatlón Moderno",
+        "yearsUsing": "4 años usando productos Immunotec",
+        "image": "/images/deportista3.webp",
+        "link": "https://www.immunotec.com/es-PE/soledadm2024"
+      },
+      {
+        "quote": "Facilita la recuperación y la vuelta al ejercicio. Es el único producto que he utilizado que marca una diferencia clara y evidente en la recuperación.",
+        "author": "Christopher Thompson",
+        "role": "Corredor de fondo",
+        "organization": "Gran Bretaña",
+        "yearsUsing": "14 años usando Immunocal",
+        "image": "/images/deportista4.webp",
+        "link": "https://www.immunotec.com/es-PE/soledadm2024"
+      }
+    ],
+    "banners": [
+      {
+        "src": "/images/banner.jpg",
+        "alt": "Banner principal de Immunocal con fondo blanco y producto destacado",
+        "title": "Descubre Immunocal",
+        "description": "Suplemento avanzado para fortalecer el sistema inmunológico con respaldo científico."
+      },
+      {
+        "src": "/images/banner1.jpg",
+        "alt": "Banner de Immunocal Platinum con fondo azul y cápsulas visibles",
+        "title": "Immunocal Platinum",
+        "description": "Formulación premium para adultos mayores y deportistas exigentes."
+      },
+      {
+        "src": "/images/banner2.jpg",
+        "alt": "Banner de Immunocal Sport con fondo dinámico y atleta en movimiento",
+        "title": "Immunocal Sport",
+        "description": "Energía y recuperación para quienes buscan rendimiento físico superior."
+      },
+      {
+        "src": "/images/banner3.png",
+        "alt": "Banner de Immunocal Kids con fondo colorido y niños felices",
+        "title": "Immunocal Kids",
+        "description": "Apoyo nutricional para el desarrollo saludable de los más pequeños."
+      }
+    ],
+    "productosImmunotec": [
+      {
+        "nombre": "Immunocal",
+        "titulo": "Fortalecimiento inmunológico y antioxidante clínicamente probado",
+        "descripcion": "Immunocal® es una proteína natural con el *valor biológico más alto* entre todas las disponibles para consumo. Ha demostrado clínicamente su capacidad para aumentar los niveles de glutatión, el *antioxidante maestro* del cuerpo, fortaleciendo el sistema inmunológico, potenciando la energía celular y apoyando la desintoxicación.",
+        "beneficios": [
+          "Incrementa los niveles de glutatión en el organismo",
+          "Fortalece el sistema inmunológico naturalmente",
+          "Contribuye a la desintoxicación celular profunda",
+          "Apoya la producción de anticuerpos"
+        ],
+        "imagen": "/images/immunocalAzul.webp",
+        "textoBoton": "Comprar Immunocal",
+        "linkVideo": "https://www.youtube.com/embed/LoCkvZEiD-U?si=kMkXpwT7NBis76w11",
+        "variant": "default"
+      },
+      {
+        "nombre": "Immunocal Platinum",
+        "titulo": "La evolución premium con CMP y RMF para adultos exigentes",
+        "descripcion": "*CMP (Proteínas moduladoras de citoquina):* Las citoquinas son pequeñas proteínas biológicamente activas que actúan como señales en el sistema inmunológico para regular la inflamación./n*RMF (Fórmula moduladora de redox):* La RMF incluye una mezcla exclusiva de citratos minerales que actúan para reducir los niveles de acidez en el cuerpo y sirven para apoyar el balance natural del pH. La inclusión de *creatina en RMF* ayuda a mantener la función muscular adecuada.",
+        "beneficios": [
+          "Todas las ventajas de Immunocal original",
+          "Proteínas moduladoras de citoquinas (CMP)",
+          "Fórmula moduladora de redox (RMF)",
+          "Equilibrio del pH corporal óptimo",
+          "Soporte para función muscular con creatina",
+          "Ideal para adultos mayores de 50 años"
+        ],
+        "imagen": "/images/immunocalPlatinum.webp",
+        "textoBoton": "Comprar Immunocal Platinum",
+        "linkVideo": "https://www.youtube.com/embed/u-1bRrxd36A?si=0y6XJvPHJ9zbB2qt",
+        "variant": "featured",
+        "badge": "Premium"
+      },
+      {
+        "nombre": "Immunocal Sport",
+        "titulo": "Máximo rendimiento deportivo y recuperación acelerada para atletas",
+        "descripcion": "Immunocal Sport es una *poderosa fórmula deportiva* compuesta de precursores de óxido nítrico y proteína de suero de leche de alto valor biológico, diseñada para ayudar a deportistas profesionales y aficionados a *preparar su sistema inmunitario*, suministrar más oxígeno al cuerpo, aumentar su rendimiento físico y lograr una *recuperación muscular más rápida*.",
+        "beneficios": [
+          "Precursor del glutatión para protección celular",
+          "Aumenta los niveles de óxido nítrico naturalmente",
+          "Mezcla exclusiva de citrulina y raíz de remolacha",
+          "Cereza ácida: antiinflamatorio natural potente",
+          "Citrato de magnesio reduce ácido láctico",
+          "Sin sabores artificiales, sin gluten, sin OGM",
+          "Ideal para atletas y deportistas activos",
+          "Recuperación muscular acelerada post-entrenamiento"
+        ],
+        "imagen": "/images/immunocalSport.webp",
+        "textoBoton": "Potencia tu rendimiento ahora",
+        "variant": "video-first"
+      },
+      {
+        "nombre": "Omega Gen V",
+        "titulo": "Salud cardiovascular y cerebral de quinta generación con 5 componentes premium",
+        "descripcion": "Omega Gen V es una *fórmula robusta de quinta generación*, diseñada científicamente para apoyar tu salud cardíaca, cerebral y bienestar general. Contiene una mezcla sinérgica de *cinco componentes clínicamente estudiados*: CoQ10, cúrcuma, vitamina E, piperina y un *33% más de aceite de pescado* purificado con EPA y DHA, convirtiéndola en la solución más completa para tu salud integral.",
+        "beneficios": [
+          "Salud cognitiva y funciones cerebrales optimizadas",
+          "Corazón y sistema cardiovascular saludables",
+          "Omega-3 EPA y DHA de máxima pureza",
+          "CoQ10 para energía celular y vitalidad",
+          "Cúrcuma con propiedades antiinflamatorias",
+          "Vitamina E: antioxidante protector celular",
+          "Piperina para absorción mejorada de nutrientes",
+          "33% más aceite de pescado que fórmulas estándar"
+        ],
+        "imagen": "/images/omegaGenV.webp",
+      
+        "textoBoton": "Comprar Omega Gen V",
+        "linkVideo": "https://www.youtube.com/embed/UylLycP25ck?si=6noAET7r7XZncnqC",
+        "variant": "default"
+      },
+      {
+        "nombre": "Immunocal Optimizer",
+        "titulo": "Superalimento epigenético con más de 50 frutas y verduras orgánicas certificadas",
+        "descripcion": "Mezcla *epigenética de nueva generación* con extracto concentrado de brócoli (sulforafano), vitaminas esenciales y minerales biodisponibles. Refuerza la red antioxidante completa y *potencia la producción natural de glutatión* con un delicioso y refrescante sabor a frutos rojos del bosque. El complemento perfecto y sinérgico para maximizar todos los beneficios de tu Immunocal diario.",
+        "beneficios": [
+          "Complemento perfecto para Immunocal e Immunocal Platinum",
+          "Más de 50 frutas y verduras orgánicas certificadas",
+          "Extracto de brócoli rico en sulforafano activo",
+          "Todos los ingredientes clínicamente estudiados",
+          "Delicioso sabor cítrico natural de frutos rojos",
+          "Apoya la producción endógena de glutatión",
+          "Red completa de antioxidantes naturales",
+          "Sin azúcares añadidos ni edulcorantes artificiales"
+        ],
+        "imagen": "/images/immunocalOptimizerVerde.webp",
+        "textoBoton": "Comprar Optimizer",
+        "variant": "default"
+      }
+    ]
+  }
+}
