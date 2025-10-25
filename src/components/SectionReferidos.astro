@@ -1,40 +1,50 @@
 ---
 import Title from "../components/Title.astro";
 import Boton from "./Boton.astro";
+import type { whatsapp } from "../types/tipos";
+
+interface Props {
+  whatsapplink:whatsapp;
+}
+const {whatsapplink}=Astro.props;
 ---
 
-<section class="flex flex-col justify-center scroll-mt-24 py-12 items-center gap-8 space-y-4">
+<section
+  class="flex flex-col justify-center scroll-mt-24 py-12 items-center gap-8 space-y-4"
+>
   <Title titulo="Registrate al Programa de Clientes Preferentes" />
-  <div class="flex flex-col md:flex-row gap-8 w-full justify-around">
-    <div class=" md:max-w-lg gap-8 flex flex-col justify-center items-center">
+  <div class="flex flex-col md:flex-row gap-8 w-full justify-around text-gray-700">
+    <div
+      class="md:max-w-lg gap-8 text-sm lg:text-base flex flex-col justify-center items-center"
+    >
       <p>
-        <strong>Regístrate al programa de lealtad</strong> de los clientes de Immunotec,
-        diseñado no sólo para <strong>recompensar tu lealtad</strong> mediante <strong
+        <strong class="text-black">Regístrate al programa de lealtad</strong> de los clientes de Immunotec,
+        diseñado no sólo para <strong class="text-black">recompensar tu lealtad</strong> mediante <strong
           >descuentos y créditos de productos</strong
         >, sino también para <strong
-          >premiar a quienes recomiendan nuevos clientes</strong
+           class="text-black">premiar a quienes recomiendan nuevos clientes</strong
         > a Immunotec. Disfruta de los siguientes beneficios al registrarte como
         Cliente.
       </p>
 
-      <ul class="list-disc space-y-2 p-4 xl:p-0 text-gray-800">
+      <ul class="list-disc space-y-2 p-4 xl:p-0 ">
         <li>
-          <strong>Obtén un 25% de descuento</strong> en tus productos favoritos Immunotec
+          <strong class="text-black">Obtén un 25% de descuento</strong> en tus productos favoritos Immunotec
           al pedir un producto en Autoenvío
         </li>
         <li>
-          <strong>Tu lealtad</strong> te otorgará <strong
-            >premios exclusivos</strong
+          <strong class="text-black"> Tu lealtad</strong> te otorgará <strong
+            class="text-black">premios exclusivos</strong
           >
         </li>
         <li>
-          <strong>Invita a nuevos Clientes</strong> y recibe <strong
-            >descuentos por tus compras personales</strong
+          <strong class="text-black">Invita a nuevos Clientes</strong> y recibe <strong
+            class="text-black">descuentos por tus compras personales</strong
           >
         </li>
-        <li><strong>Acceso anticipado</strong> a nuestros nuevos productos</li>
+        <li><strong class="text-black">Acceso anticipado</strong> a nuestros nuevos productos</li>
         <li>
-          <strong>Acceso exclusivo</strong> a promociones especiales diseñadas únicamente
+          <strong class="text-black">Acceso exclusivo</strong> a promociones especiales diseñadas únicamente
           para ti
         </li>
       </ul>
@@ -43,11 +53,11 @@ import Boton from "./Boton.astro";
     <iframe
       title="vimeo-player"
       src="https://player.vimeo.com/video/853844835?h=959f5e4136"
-class="min-h-50 md:min-h-80 mx-auto  max-w-lg  h-full w-full"
+      class="min-h-50 md:min-h-80 mx-auto max-w-lg h-full w-full"
       frameborder="0"
       referrerpolicy="strict-origin-when-cross-origin"
       allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
       allowfullscreen></iframe>
   </div>
-<Boton texto="Conviertete en cliente preferente"/>
+  <Boton whatsapp={whatsapplink} texto="Conviertete en cliente preferente" />
 </section>

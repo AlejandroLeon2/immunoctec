@@ -1,0 +1,279 @@
+---
+import Title from "./Title.astro";
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  bgColor?: string;
+}
+
+const {
+  title = "¿Tienes alguna pregunta?",
+  subtitle = "Contáctanos y te responderemos lo antes posible",
+  bgColor = "bg-gradient-to-br from-white to-gray-50",
+} = Astro.props;
+---
+
+<section id="contacto" class={`${bgColor} py-12 scroll-mt-24`}>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+    <header class="text-center mb-12">
+      <Title titulo={title} />
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        {subtitle}
+      </p>
+    </header>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <aside class="space-y-8">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-6 tracking-tight">
+            Estamos aquí para ayudarte
+          </h3>
+          <p class="text-base text-gray-700 leading-relaxed mb-8">
+            Completa el formulario y nos pondremos en contacto contigo en menos
+            de 24 horas. También puedes comunicarte directamente con nosotros a
+            través de nuestros canales.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <article
+            class="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm border border-gray-200 hover:border-[#2584FF] transition-colors"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-[#2584FF] bg-opacity-10 flex items-center justify-center flex-shrink-0"
+            >
+              <svg
+                class="w-6 h-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-1">Email</h4>
+              <address class="text-sm text-gray-600 not-italic">
+                <a
+                  href="mailto:contacto@tuempresa.com"
+                  class="hover:text-[#2584FF] transition-colors"
+                >
+                  contacto@gmail.com
+                </a>
+              </address>
+            </div>
+          </article>
+
+          <article
+            class="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm border border-gray-200 hover:border-[#2584FF] transition-colors"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-[#2584FF] bg-opacity-10 flex items-center justify-center flex-shrink-0"
+            >
+              <svg
+                class="w-6 h-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-1">Teléfono</h4>
+              <address class="text-sm text-gray-600 not-italic">
+                <a
+                  href="tel:+51999999999"
+                  class="hover:text-[#2584FF] transition-colors"
+                >
+                  +51 999 999 999
+                </a>
+              </address>
+            </div>
+          </article>
+
+          <article
+            class="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm border border-gray-200 hover:border-[#2584FF] transition-colors"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-[#2584FF] bg-opacity-10 flex items-center justify-center flex-shrink-0"
+            >
+              <svg
+                class="w-6 h-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-1">Ubicación</h4>
+              <address class="text-sm text-gray-600 not-italic">
+                Lima, Perú
+              </address>
+            </div>
+          </article>
+        </div>
+      </aside>
+
+      <div
+        class="bg-white rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] p-8 lg:p-10 border border-gray-200"
+      >
+        <form id="form" class="space-y-6">
+          <div class="field">
+            <label
+              for="name"
+              class="block text-sm font-semibold text-gray-900 mb-2"
+            >
+              Nombre completo
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2584FF] focus:ring-2 focus:ring-[#2584FF] focus:ring-opacity-20 outline-none transition-all text-gray-900 placeholder-gray-400"
+              placeholder="Juan Pérez"
+            />
+          </div>
+
+          <div class="field">
+            <label
+              for="email"
+              class="block text-sm font-semibold text-gray-900 mb-2"
+            >
+              Correo electrónico
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2584FF] focus:ring-2 focus:ring-[#2584FF] focus:ring-opacity-20 outline-none transition-all text-gray-900 placeholder-gray-400"
+              placeholder="juan@ejemplo.com"
+            />
+          </div>
+
+          <div class="field">
+            <label
+              for="title"
+              class="block text-sm font-semibold text-gray-900 mb-2"
+            >
+              Asunto
+            </label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              required
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2584FF] focus:ring-2 focus:ring-[#2584FF] focus:ring-opacity-20 outline-none transition-all text-gray-900 placeholder-gray-400"
+              placeholder="¿En qué podemos ayudarte?"
+            />
+          </div>
+
+          <div class="field">
+            <label
+              for="message"
+              class="block text-sm font-semibold text-gray-900 mb-2"
+            >
+              Mensaje
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2584FF] focus:ring-2 focus:ring-[#2584FF] focus:ring-opacity-20 outline-none transition-all text-gray-900 placeholder-gray-400 resize-none"
+              placeholder="Cuéntanos en qué podemos ayudarte..."></textarea>
+          </div>
+
+          <input
+            type="submit"
+            id="button"
+            value="Enviar mensaje"
+            class="w-full bg-[#2584FF] hover:bg-[#1A6FD4] text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+          />
+
+          <div
+            id="form-message"
+            class="hidden p-4 rounded-lg text-sm font-medium"
+            role="alert"
+          >
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+  emailjs.init("TRoMJBFLwwq32FCM2");
+
+  const btn = document.getElementById("button");
+  const form = document.getElementById("form");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    btn.value = "Enviando...";
+    btn.disabled = true;
+
+    const serviceID = "default_service";
+    const templateID = "template_vk05yr5";
+
+    emailjs.sendForm(serviceID, templateID, this).then(
+      () => {
+        btn.value = "Enviar mensaje";
+        btn.disabled = false;
+        alert("¡Mensaje enviado exitosamente!");
+        form.reset();
+      },
+      (err) => {
+        btn.value = "Enviar mensaje";
+        btn.disabled = false;
+        console.error("Error al enviar:", err);
+        alert(
+          `Error al enviar: ${err.text || "Intenta nuevamente más tarde."}`
+        );
+      }
+    );
+  });
+</script>
+
+<style>
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: #111827;
+    -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+</style>

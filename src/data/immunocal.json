@@ -81,6 +81,7 @@
         ],
         "imagen": "/images/immunocalAzul.webp",
         "textoBoton": "Comprar Immunocal",
+        "urlPagina": "https://www.immunotec.com/es-PE/soledadm2024/products/immunocal",
         "linkVideo": "https://www.youtube.com/embed/LoCkvZEiD-U?si=kMkXpwT7NBis76w11",
         "variant": "default"
       },
@@ -98,6 +99,7 @@
         ],
         "imagen": "/images/immunocalPlatinum.webp",
         "textoBoton": "Comprar Immunocal Platinum",
+        "urlPagina": "https://www.immunotec.com/es-PE/soledadm2024/products/immunocal-platinum",
         "linkVideo": "https://www.youtube.com/embed/u-1bRrxd36A?si=0y6XJvPHJ9zbB2qt",
         "variant": "featured",
         "badge": "Premium"
@@ -118,6 +120,7 @@
         ],
         "imagen": "/images/immunocalSport.webp",
         "textoBoton": "Potencia tu rendimiento ahora",
+        "urlPagina": "https://www.immunotec.com/es-PE/soledadm2024/products/immunocal-sport",
         "variant": "video-first"
       },
       {
@@ -135,27 +138,29 @@
           "33% más aceite de pescado que fórmulas estándar"
         ],
         "imagen": "/images/omegaGenV.webp",
-      
+
         "textoBoton": "Comprar Omega Gen V",
+        "urlPagina": "https://www.immunotec.com/es-PE/soledadm2024/products/omega-gen-v",
         "linkVideo": "https://www.youtube.com/embed/UylLycP25ck?si=6noAET7r7XZncnqC",
         "variant": "default"
       },
       {
-        "nombre": "Immunocal Optimizer",
-        "titulo": "Superalimento epigenético con más de 50 frutas y verduras orgánicas certificadas",
-        "descripcion": "Mezcla *epigenética de nueva generación* con extracto concentrado de brócoli (sulforafano), vitaminas esenciales y minerales biodisponibles. Refuerza la red antioxidante completa y *potencia la producción natural de glutatión* con un delicioso y refrescante sabor a frutos rojos del bosque. El complemento perfecto y sinérgico para maximizar todos los beneficios de tu Immunocal diario.",
+        "nombre": "Immunocal Booster Energy Performance",
+        "titulo": "Catalizador Nrf2™ con energía limpia y antioxidantes de acción prolongada",
+        "descripcion": "Suplemento activador de Nrf2 con sulforafano, selenio, vitaminas C y B12, y tres fuentes naturales de cafeína (guaraná, té verde y café verde). Estimula la producción de glutatión, mejora la concentración y refuerza la defensa antioxidante celular. Proporciona energía duradera sin los bajones típicos de la cafeína, con efectos que se sienten en 15 minutos y pueden durar hasta 6 horas.",
         "beneficios": [
-          "Complemento perfecto para Immunocal e Immunocal Platinum",
-          "Más de 50 frutas y verduras orgánicas certificadas",
-          "Extracto de brócoli rico en sulforafano activo",
-          "Todos los ingredientes clínicamente estudiados",
-          "Delicioso sabor cítrico natural de frutos rojos",
-          "Apoya la producción endógena de glutatión",
-          "Red completa de antioxidantes naturales",
-          "Sin azúcares añadidos ni edulcorantes artificiales"
+          "Impulsa tu energía y concentración sin altibajos",
+          "Acción rápida: efecto en 15 minutos, duración de hasta 6 horas",
+          "Estimula la producción de dopamina y mejora el enfoque",
+          "Activa el gen NRF2 para triplicar la defensa antioxidante",
+          "Extiende la desintoxicación hasta por 72 horas",
+          "Sinergia con Immunocal para potenciar el glutatión",
+          "Ingredientes clínicamente estudiados y de alta calidad",
+          "Contiene selenio, sulforafano, vitaminas C y B12"
         ],
-        "imagen": "/images/immunocalOptimizerVerde.webp",
-        "textoBoton": "Comprar Optimizer",
+        "imagen": "/images/optimizerPerfomaceNaranjaSobre.webp",
+        "textoBoton": "Comprar Booster",
+        "urlPagina": "https://www.immunotec.com/es-PE/soledadm2024/products/immunocal-booster-energy-performance",
         "variant": "default"
       }
     ]

@@ -6,11 +6,12 @@ export interface Producto {
   nombre: string;
   titulo: string;
   descripcion: string;
-  beneficios?:string[];
+  beneficios?: string[];
   imagen: string;
-  color?:string;
+  color?: string;
   textoBoton: string;
   linkVideo?: string;
-  variant?:string;
-  badge?:string;
-};
+  variant?: string;
+  badge?: string;
+  urlPagina: string;
+}
