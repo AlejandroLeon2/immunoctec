@@ -162,6 +162,25 @@
         "textoBoton": "Comprar Booster",
         "urlPagina": "https://www.immunotec.com/es-PE/soledadm2024/products/immunocal-booster-energy-performance",
         "variant": "default"
+      },
+      {
+        "nombre": "Immunocal Booster Energy Performance",
+        "titulo": "Catalizador Nrf2™ con energía limpia y antioxidantes de acción prolongada",
+        "descripcion": "Suplemento activador de Nrf2 con sulforafano, selenio, vitaminas C y B12, y tres fuentes naturales de cafeína (guaraná, té verde y café verde). Ayuda a potenciar los niveles de glutatión y la capacidad antioxidante total. Proporciona energía saludable para combatir el cansancio y la fatiga, protegiendo contra el estrés oxidativo.",
+        "beneficios": [
+          "Impulsa tu energía y concentración sin altibajos",
+          "Acción rápida con efectos duraderos",
+          "Activa el gen NRF2 para fortalecer la defensa antioxidante",
+          "Extiende la desintoxicación hasta por 72 horas",
+          "Sinergia con Immunocal para potenciar el glutatión",
+          "Ingredientes clínicamente estudiados y de alta calidad",
+          "Contiene selenio, sulforafano, vitaminas C y B12",
+          "Fuentes naturales de cafeína: guaraná, té verde y café verde"
+        ],
+        "imagen": "/images/immunocalOptimizerVerde.webp",
+        "textoBoton": "Comprar Booster",
+        "urlPagina": "https://www.immunotec.com/es-PE/soledadm2024/products/immunocal-booster",
+        "variant": "default"
       }
     ]
   }

@@ -25,7 +25,7 @@ const productos = dataImmunotecSoledad.immunocaltecSoledad.productosImmunotec;
     <SliderDeportistas
       testimonials={dataImmunotecSoledad.immunocaltecSoledad.testimonials}
     />
-    <Informacio/>
+    <Informacio />
     <section>
       <img src="/images/info.jpg" alt="" class="" />
     </section>
@@ -37,26 +37,28 @@ const productos = dataImmunotecSoledad.immunocaltecSoledad.productosImmunotec;
         ))
       }
     </section>
-<section class="text-center py-12 bg-white space-y-4 text-black">
-  <Title titulo="Empieza hoy tu camino hacia una salud óptima" />
-  <p class="text-lg mb-6 ">
-    Descubre el poder del glutatión y el respaldo clínico de Immunocal. ¡Tu cuerpo lo merece!
-  </p>
+    <section class="text-center py-12 bg-white space-y-4 text-black">
+      <Title titulo="Empieza hoy tu camino hacia una salud óptima" />
+      <p class="text-lg mb-6">
+        Descubre el poder del glutatión y el respaldo clínico de Immunocal. ¡Tu
+        cuerpo lo merece!
+      </p>
 
-  <Boton
-    url="https://www.immunotec.com/es-PE/soledadm2024/products"
-    pagina={true}
-    texto="Ver productos"
-    
-   
-  />
-</section>
-
+      <Boton
+        url="https://www.immunotec.com/es-PE/soledadm2024/products"
+        pagina={true}
+        texto="Ver productos"
+      />
+    </section>
 
     <SectionReferidos
       whatsapplink={dataImmunotecSoledad.immunocaltecSoledad.whatsapp}
     />
     <Form />
-    <Boton texto="hola" flotante={dataImmunotecSoledad.immunocaltecSoledad.whatsapp} extra=" bg-green-500 boton rounded-full p-4 text-white fixed bottom-4 right-4  z-50"/>
+    <Boton
+      texto="hola"
+      flotante={dataImmunotecSoledad.immunocaltecSoledad.whatsapp}
+      extra=" bg-green-500 boton rounded-full p-4 text-white fixed bottom-4 right-4  z-50"
+    />
   </main>
 </Layout>
