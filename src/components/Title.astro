@@ -1,8 +1,10 @@
 ---
 interface Props{
     titulo:string;
+    principal?:boolean;
 }
-const { titulo } = Astro.props;
+const { titulo, principal } = Astro.props;
 ---
+{principal ? 
+    <h1 class="font-bold  text-4xl">{titulo}</h1>: <h2 class="font-bold  text-4xl">{titulo}</h2>}
 
-<h2 class="font-bold  text-4xl">{titulo}</h2>
