@@ -25,14 +25,14 @@ const {
 ---
 
 <section id="inicio" class="w-full mx-auto  scroll-mt-24 ">
-  <div class={`slider relative ${height} max-h-[40svh] md:max-h-[70svh]  overflow-hidden shadow-2xl group`}>
+  <div class={`slider relative ${height} max-h-[40svh] md:max-h-[80svh]  overflow-hidden shadow-2xl group`}>
     <div
       class="slider-track flex h-full  transition-transform duration-700 ease-out"
     >
       {
         images.map((image, index) => (
           <div class="slide min-w-full  h-full relative">
-            <div class="absolute inset-0  bg-gradient-to-br from-black/40 via-transparent to-black/60" />
+            <div class="absolute inset-0  bg-gradient-to-br from-black/20 via-transparent to-black/40" />
             <img
               src={image.src}
               alt={image.alt}

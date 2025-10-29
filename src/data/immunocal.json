@@ -44,13 +44,13 @@
     ],
     "banners": [
       {
-        "src": "/images/banner.jpg",
+        "src": "/images/bannerNuevo.jpeg",
         "alt": "Banner principal de Immunocal con fondo blanco y producto destacado",
         "title": "Descubre Immunocal",
         "description": "Suplemento avanzado para fortalecer el sistema inmunológico con respaldo científico."
       },
       {
-        "src": "/images/banner1.jpg",
+        "src": "/images/bannerGrupo.jpeg",
         "alt": "Banner de Immunocal Platinum con fondo azul y cápsulas visibles",
         "title": "Immunocal Platinum",
         "description": "Formulación premium para adultos mayores y deportistas exigentes."
