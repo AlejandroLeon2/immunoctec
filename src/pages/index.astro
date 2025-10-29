@@ -9,6 +9,7 @@ import SectionReferidos from "../components/SectionReferidos.astro";
 import Form from "../components/Form.astro";
 import Informacio from "../components/Informacio.astro";
 import Title from "../components/Title.astro";
+import Emprende from "../components/Emprende.astro";
 import Boton from "../components/Boton.astro";
 import dataImmunotecSoledad from "../data/immunocal.json";
 
@@ -54,6 +55,7 @@ const productos = dataImmunotecSoledad.immunocaltecSoledad.productosImmunotec;
     <SectionReferidos
       whatsapplink={dataImmunotecSoledad.immunocaltecSoledad.whatsapp}
     />
+    <Emprende whatsapp={dataImmunotecSoledad.immunocaltecSoledad.whatsapp}/>
     <Form />
     <Boton
       texto="hola"
