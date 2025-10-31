@@ -1,14 +1,7 @@
 ---
 import Title from "../components/Title.astro";
-interface Testimonial {
-  quote: string;
-  author: string;
-  role: string;
-  organization: string;
-  yearsUsing: string;
-  image: string;
-  link?: string;
-}
+import type { Testimonial } from "../types/tipos";
+
 
 interface Props {
   headline?: string;
@@ -97,6 +90,7 @@ const {
               <img
                 src={testimonial.image}
                 alt={`Foto de ${testimonial.author}`}
+                title={`Foto de ${testimonial.author}`}
                 loading={index === 0 ? "eager" : "lazy"}
                 class="w-48 h-48  object-cover "
               />

@@ -1,9 +1,14 @@
 {
   "immunocaltecSoledad": {
-    "whatsapp": {
-      "numero": "932468013",
-      "mensaje": "Hola Soledad, estoy interesado en conocer más sobre los productos de Immunotec y cómo pueden mejorar mi bienestar."
-    },
+    "whatsapp":  [
+
+
+      "Hola Soledad, vi tu página y me gustaría unirme como socio. ¿Cuál es el siguiente paso?",
+      "Hola Soledad quiero obtener mi descontento del 25% ¿Como lo obtengo?",
+          "Hola Soledad quiero obtener mi descontento del 35% ¿Como lo obtengo?",
+
+
+      "Hola Soledad, estoy navegando por tu página y tengo algunas consultas. ¿Podemos conversar por aquí?"],
     "testimonials": [
       {
         "quote": "Desde que uso Immunocal, mi energía ha mejorado notablemente y me siento más resistente ante enfermedades.",

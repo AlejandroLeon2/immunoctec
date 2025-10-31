@@ -10,136 +10,235 @@ const caracteristicas = [
   { titulo: "Inmunológico", icono: "shield" },
   { titulo: "Desintoxicador", icono: "refresh" },
   { titulo: "Energía Celular", icono: "lightning" },
-  { titulo: "Antioxidante Maestro", icono: "star" }
+  { titulo: "Antioxidante Maestro", icono: "star" },
 ];
 
 const beneficios = [
   {
     titulo: "Poder antioxidante",
-    descripcion: "Ayuda en la síntesis de glutatión, evitando el envejecimiento prematuro de las células y liberando vitaminas protectoras como A y E.",
-    icono: "protect"
+    descripcion:
+      "Ayuda en la síntesis de glutatión, evitando el envejecimiento prematuro de las células y liberando vitaminas protectoras como A y E.",
+    icono: "protect",
   },
   {
     titulo: "Sistema inmunológico",
-    descripcion: "Contribuye en la producción de linfocitos T, neutrófilos y células NK, fundamentales para el correcto funcionamiento inmune.",
-    icono: "heart"
+    descripcion:
+      "Contribuye en la producción de linfocitos T, neutrófilos y células NK, fundamentales para el correcto funcionamiento inmune.",
+    icono: "heart",
   },
   {
     titulo: "Actividad deportiva",
-    descripcion: "Favorece la recuperación muscular post-entrenamiento y el desarrollo de masa muscular gracias a su variedad de aminoácidos.",
-    icono: "muscle"
-  }
+    descripcion:
+      "Favorece la recuperación muscular post-entrenamiento y el desarrollo de masa muscular gracias a su variedad de aminoácidos.",
+    icono: "muscle",
+  },
 ];
 ---
 
 <section class={`${bgColor} py-12 `}>
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-    
     <!-- Header -->
     <div class="text-center mb-10">
-      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight mb-3">
-        Immunocal fortalece el <span class="text-[#2584FF]">Sistema Inmunológico</span>
+      <h2
+        class="text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight mb-3"
+      >
+        Immunocal fortalece el <span class="text-[#2584FF]"
+          >Sistema Inmunológico</span
+        >
       </h2>
       <p class="text-xl lg:text-2xl font-bold text-gray-700">
         Una buena opción para tu salud
       </p>
     </div>
-    
+
     <!-- Características -->
     <div class="flex flex-wrap justify-start md:justify-center gap-3 mb-12">
-      {caracteristicas.map((item) => (
-        <div class="flex items-center gap-2  bg-gray-50 px-5 py-3 rounded-full">
-          <div class="w-8 h-8 rounded-full bg-[#2584FF] flex items-center justify-center">
-            {item.icono === 'shield' && (
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-              </svg>
-            )}
-            {item.icono === 'refresh' && (
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-              </svg>
-            )}
-            {item.icono === 'lightning' && (
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-              </svg>
-            )}
-            {item.icono === 'star' && (
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
-              </svg>
-            )}
+      {
+        caracteristicas.map((item) => (
+          <div class="flex items-center gap-2  bg-gray-50 px-5 py-3 rounded-full">
+            <div class="w-8 h-8 rounded-full bg-[#2584FF] flex items-center justify-center">
+              {item.icono === "shield" && (
+                <svg
+                  class="w-5 h-5 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  />
+                </svg>
+              )}
+              {item.icono === "refresh" && (
+                <svg
+                  class="w-5 h-5 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                  />
+                </svg>
+              )}
+              {item.icono === "lightning" && (
+                <svg
+                  class="w-5 h-5 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
+              )}
+              {item.icono === "star" && (
+                <svg
+                  class="w-5 h-5 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                  />
+                </svg>
+              )}
+            </div>
+            <span class="text-sm font-semibold text-gray-900">
+              {item.titulo}
+            </span>
           </div>
-          <span class="text-sm font-semibold text-gray-900">{item.titulo}</span>
-        </div>
-      ))}
+        ))
+      }
     </div>
 
     <!-- Contenido principal -->
     <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 mb-12">
-      
       <!-- ¿Qué es? -->
       <div>
-        <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-5 tracking-tight">
+        <h2
+          class="text-2xl lg:text-3xl font-bold text-gray-900 mb-5 tracking-tight"
+        >
           ¿Qué es Immunocal?
         </h2>
-        
-        <div class="space-y-4 text-sm flex flex-col lg:text-base text-gray-700 leading-relaxed">
+
+        <div
+          class="space-y-4 text-sm flex flex-col lg:text-base text-gray-700 leading-relaxed"
+        >
           <p>
-            Immunocal es un complemento alimenticio que suministra todos los aminoácidos necesarios para el cuerpo humano. Destaca por contener grandes cantidades del aminoácido <strong class="text-gray-900">cisteína</strong>, transformado en el potente antioxidante: <strong class="text-[#2584FF]">glutatión</strong>.
+            Immunocal es un complemento alimenticio que suministra todos los
+            aminoácidos necesarios para el cuerpo humano. Destaca por contener
+            grandes cantidades del aminoácido <strong class="text-gray-900"
+              >cisteína</strong
+            >, transformado en el potente antioxidante: <strong
+              class="text-[#2584FF]">glutatión</strong
+            >.
           </p>
-          
+
           <div class="bg-blue-50 px-5 py-4 rounded-lg">
             <p class="text-gray-800 text-sm">
-              El <strong class="text-[#2584FF]">glutatión</strong> es el antioxidante más importante del cuerpo. Protege las células, elimina radicales libres y juega un papel determinante en el sistema inmunitario.
+              El <strong class="text-bases">glutatión</strong> es el antioxidante
+              más importante del cuerpo. Protege las células, elimina radicales libres
+              y juega un papel determinante en el sistema inmunitario.
             </p>
           </div>
-          <img src="/images/paquete.png" class="w-full h-auto " alt="">
+          <img
+            src="/images/paquete.png"
+            loading="lazy"
+            class="w-full h-auto"
+            alt="Foto del producto immunocal"
+            title="Foto del producto immunocal"
+          />
         </div>
       </div>
 
       <!-- Beneficios -->
       <div>
-        <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-5 tracking-tight">
+        <h2
+          class="text-2xl lg:text-3xl font-bold text-gray-900 mb-5 tracking-tight"
+        >
           Beneficios principales
         </h2>
-        
+
         <div class="space-y-5">
-          {beneficios.map((beneficio) => (
-            <div class="flex gap-4 items-start">
-              <div class="w-10 h-10 rounded-full bg-[#2584FF] flex items-center justify-center flex-shrink-0">
-                {beneficio.icono === 'protect' && (
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                  </svg>
-                )}
-                {beneficio.icono === 'heart' && (
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                  </svg>
-                )}
-                {beneficio.icono === 'muscle' && (
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                  </svg>
-                )}
+          {
+            beneficios.map((beneficio) => (
+              <div class="flex gap-4 items-start">
+                <div class="w-10 h-10 rounded-full bg-[#2584FF] flex items-center justify-center flex-shrink-0">
+                  {beneficio.icono === "protect" && (
+                    <svg
+                      class="w-5 h-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                      />
+                    </svg>
+                  )}
+                  {beneficio.icono === "heart" && (
+                    <svg
+                      class="w-5 h-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                      />
+                    </svg>
+                  )}
+                  {beneficio.icono === "muscle" && (
+                    <svg
+                      class="w-5 h-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                  )}
+                </div>
+
+                <div>
+                  <h3 class="text-base lg:text-lg font-bold text-gray-900 mb-2 leading-tight">
+                    {beneficio.titulo}
+                  </h3>
+                  <p class="text-sm text-gray-700 leading-relaxed">
+                    {beneficio.descripcion}
+                  </p>
+                </div>
               </div>
-              
-              <div>
-                <h3 class="text-base lg:text-lg font-bold text-gray-900 mb-2 leading-tight">
-                  {beneficio.titulo}
-                </h3>
-                <p class="text-sm text-gray-700 leading-relaxed">
-                  {beneficio.descripcion}
-                </p>
-              </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
     </div>
-
-
   </div>
 </section>

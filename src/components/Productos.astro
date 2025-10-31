@@ -1,6 +1,8 @@
 ---
+import SliderDeportistas from "./SliderDeportistas.astro";
 import Title from "../components/Title.astro";
 import type { Producto } from "../types/tipos";
+import type { Testimonial } from "../types/tipos";
 import Boton from "./Boton.astro";
 
 interface Props {
@@ -8,9 +10,10 @@ interface Props {
   suplemento: Producto;
   reverse?: boolean;
   variant?: 'default' | 'featured' | 'minimal' | 'video-first';
+  testimonials:Testimonial[];
 }
 
-const { fondo, suplemento, reverse = false, variant = 'default' } = Astro.props;
+const { fondo, suplemento, reverse = false, variant = 'default', testimonials } = Astro.props;
 
 const isVideoFirst = variant === 'video-first' || suplemento.nombre === 'Immunocal Sport';
 const isFeatured = variant === 'featured' || suplemento.nombre === 'Immunocal Platinum';
@@ -36,6 +39,7 @@ const isFeatured = variant === 'featured' || suplemento.nombre === 'Immunocal Pl
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
+              loading="lazy"
             ></iframe>
           </div>
         </div>
@@ -50,6 +54,7 @@ const isFeatured = variant === 'featured' || suplemento.nombre === 'Immunocal Pl
             <img
               src={suplemento.imagen}
               alt={`imagen de ${suplemento.nombre}`}
+              title={`imagen de ${suplemento.nombre}`}
               class="w-full h-72 object-contain"
               loading="lazy"
             />
@@ -107,6 +112,9 @@ const isFeatured = variant === 'featured' || suplemento.nombre === 'Immunocal Pl
       )}
     </div>
   </section>
+    <SliderDeportistas
+      testimonials={testimonials}
+    />
 
 ) : isFeatured ? (
   <!-- Layout: Destacado Premium -->
@@ -131,6 +139,7 @@ const isFeatured = variant === 'featured' || suplemento.nombre === 'Immunocal Pl
             <img
               src={suplemento.imagen}
               alt={`imagen de ${suplemento.nombre}`}
+              title={`imagen de ${suplemento.nombre}`}
               class={`w-full h-full object-cover ${
                 suplemento.nombre === "Immunocal Platinum" ? "object-bottom" : ""
               }`}
@@ -194,6 +203,7 @@ const isFeatured = variant === 'featured' || suplemento.nombre === 'Immunocal Pl
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen
+                loading="lazy"
               ></iframe>
             </div>
           </div>
@@ -223,6 +233,7 @@ const isFeatured = variant === 'featured' || suplemento.nombre === 'Immunocal Pl
             <img
               src={suplemento.imagen}
               alt={`imagen de ${suplemento.nombre}`}
+              title={`imagen de ${suplemento.nombre}`}
               class={`w-full h-80 object-cover object-bottom ${
                 suplemento.nombre === "Immunocal Platinum" ? "object-bottom" : ""
               }`}
@@ -239,6 +250,7 @@ const isFeatured = variant === 'featured' || suplemento.nombre === 'Immunocal Pl
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen
+                loading="lazy"
               ></iframe>
             </div>
           </div>

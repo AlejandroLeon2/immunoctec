@@ -3,6 +3,7 @@ import TiktokIcon from "../icons/TiktokIcon.astro";
 
 import dataImmunotecSoledad from "../data/immunocal.json"
 import Boton from "./Boton.astro";
+
 interface FooterLink {
   label: string;
   href: string;
@@ -152,10 +153,11 @@ const {
         <div class="flex gap-4">
           {
             socialLinks.map((social) => (
-              social.icon === "whatsapp" ?(  <Boton texto="hola" extra="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors" iconTamaño="24" flotante={dataImmunotecSoledad.immunocaltecSoledad.whatsapp}/>):( <a
+              social.icon === "whatsapp" ?(  <Boton texto="hola" extra="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors" iconTamaño="24" flotante={dataImmunotecSoledad.immunocaltecSoledad.whatsapp[3]}/>):( <a
                 href={social.href}
                 class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors"
                 aria-label={social.name}
+                title={social.name}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -196,6 +198,7 @@ const {
                   <li>
                     <a
                       href={link.href}
+                      title={link.label}
                       class="text-sm hover:text-white transition-colors inline-block"
                     >
                       {link.label}
@@ -227,6 +230,7 @@ const {
           href="https://wa.me/51924932128?text=Hola%20Pedro%2C%20vi%20tu%20sitio%20y%20me%20interesa%20saber%20m%C3%A1s%20sobre%20tus%20servicios%20de%20dise%C3%B1o%20web"
           class="hover:underline hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400"
           target="_blank"
+          title="Desarrollador Web"
           rel="noopener noreferrer"
         >
           Contacto

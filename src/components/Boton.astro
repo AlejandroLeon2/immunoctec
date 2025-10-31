@@ -1,5 +1,4 @@
 ---
-import type { whatsapp } from "../types/tipos";
 import WhatsappIcon from "../icons/WhatsappIcon.astro";
 interface Props {
   extra?:string;
@@ -7,15 +6,15 @@ interface Props {
   texto: string;
   pagina?:boolean;
   iconTamaño?:string;
-  flotante?:whatsapp;
-  whatsapp?: whatsapp;
+  flotante?:string;
+  whatsapp?: string;
 }
 
 const { url, texto, whatsapp, extra, pagina, flotante , iconTamaño="30"} = Astro.props;
 
 const isWhatsApp = !!whatsapp || !!flotante;
 const href = isWhatsApp
-  ? `https://wa.me/+51${whatsapp?.numero || flotante?.numero}?text=${encodeURIComponent(whatsapp?.mensaje ||flotante?.mensaje || "Hola, me interesa saber más")}`
+  ? `https://wa.me/+51932468013?text=${encodeURIComponent(whatsapp ||flotante|| "Hola, me interesa saber más")}`
   : url;
 
 const baseClass = "boton py-3 px-6 rounded-2xl text-white";
@@ -28,6 +27,7 @@ const variantClass = isWhatsApp
   <a
     href={href}
     class={`${baseClass} ${variantClass} ${extra}`}
+    title={`WhatsApp - Contacto directo con Soledad Consultora Immunotec`}
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -36,6 +36,7 @@ const variantClass = isWhatsApp
 ) : pagina ? (
   <a
     href={href}
+    title="Immunotec"
     target="_blank"
     class={`${baseClass} ${variantClass} ${extra}`}
   >
@@ -54,6 +55,7 @@ const variantClass = isWhatsApp
 ) : (
   <a
     href={href}
+    title="WhatsApp - Contacto directo con Soledad Consultora Immunotec"
     class={`${baseClass} ${variantClass} ${extra}`}
   >
     {texto}

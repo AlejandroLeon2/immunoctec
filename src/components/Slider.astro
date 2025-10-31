@@ -1,4 +1,6 @@
 ---
+import dataSoledadImmunocal from "../data/immunocal.json";
+import Boton from './Boton.astro';
 type image = {
   src: string;
   alt: string;
@@ -32,14 +34,16 @@ const {
       {
         images.map((image, index) => (
           <div class="slide min-w-full  h-full relative">
-            <div class="absolute inset-0  bg-gradient-to-br from-black/20 via-transparent to-black/40" />
+            <div class="absolute inset-0  bg-gradient-to-br  from-black/20 via-transparent to-black/40" />
             <img
               src={image.src}
               alt={image.alt}
+              title={image.alt}
               loading={index === 0 ? "eager" : "lazy"}
               decoding="async"
               class="w-full h-full object-cover"
             />
+            <Boton texto="Obten un descuento del 35%" extra="absolute hidden md:flex md:translate-y-30 bottom-1/2  right-10 xl:right-16" whatsapp={dataSoledadImmunocal.immunocaltecSoledad.whatsapp[2]}/>
           </div>
         ))
       }

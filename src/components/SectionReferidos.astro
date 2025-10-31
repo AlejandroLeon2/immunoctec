@@ -1,10 +1,9 @@
 ---
 import Title from "../components/Title.astro";
 import Boton from "./Boton.astro";
-import type { whatsapp } from "../types/tipos";
 
 interface Props {
-  whatsapplink:whatsapp;
+  whatsapplink:string;
 }
 const {whatsapplink}=Astro.props;
 ---
@@ -55,6 +54,7 @@ const {whatsapplink}=Astro.props;
       src="https://player.vimeo.com/video/853844835?h=959f5e4136"
       class="min-h-50 md:min-h-80 mx-auto max-w-lg h-full w-full"
       frameborder="0"
+      loading="lazy"
       referrerpolicy="strict-origin-when-cross-origin"
       allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
       allowfullscreen></iframe>

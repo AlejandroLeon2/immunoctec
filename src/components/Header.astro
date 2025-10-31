@@ -19,8 +19,8 @@ const {
   navLinks = [
     { label: "Inicio", href: "#inicio", isActive: true },
     { label: "Productos", href: "#productos" },
-        { label: "Investigacion", href: "#investigacion" },
-                { label: "Testimonios", href: "#testimonios" },
+    { label: "Investigacion", href: "#investigacion" },
+    { label: "Testimonios", href: "#testimonios" },
     { label: "Emprende", href: "#emprende" },
   ],
   ctaText = "Comenzar",
@@ -34,14 +34,16 @@ const {
     aria-label="Navegación principal"
   >
     <div class="flex justify-between items-center h-16 sm:h-20">
-      <div class="flex-shrink-0 pr-2 ">
+      <div class="flex-shrink-0 pr-2">
         <a
           href="/"
+          title="Home"
           class="flex items-center gap-3 hover:opacity-80 transition-opacity"
         >
           <img
             src="/images/immunotec.svg"
             alt={logoAlt}
+            title={logoAlt}
             class="h-8 sm:h-10 min-w-50 xl:w-auto"
             width="40"
             height="40"
@@ -55,11 +57,10 @@ const {
             <li>
               <a
                 href={link.href}
+                title={`seccion ${link.label}`}
                 class={`px-3 text-black lg:px-4 py-2 rounded-lg text-sm lg:text-base font-medium
                 ${
-                  link.isActive
-                    ? " bg-blue-50"
-                    : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+                  link.isActive ? " bg-blue-50" : "text-black  hover:bg-blue-50"
                 }`}
                 aria-current={link.isActive ? "page" : undefined}
               >
@@ -112,6 +113,7 @@ const {
             <li>
               <a
                 href={link.href}
+                title={link.label}
                 class={`block px-4 py-3 rounded-lg text-base font-medium transition-colors
                 ${
                   link.isActive
