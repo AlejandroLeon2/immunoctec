@@ -1,0 +1,86 @@
+---
+interface Props {
+  profileImage?: string;
+  name?: string;
+  title?: string;
+  description?: string;
+  bgGradient?: string;
+}
+
+const {
+  profileImage = "/images/soledad.jpeg",
+  name = "Soledad Muñoz",
+  title = "Consultora Independiente Immunotec",
+  description = "Apasionada por el bienestar y la salud. Te ayudo a transformar tu vida con productos científicamente respaldados.",
+  bgGradient = "bg-gradient-to-br from-gray-100 via-white to-gray-100",
+} = Astro.props;
+---
+
+<main class={`${bgGradient} min-h-screen py-12 px-4 sm:px-6 lg:px-8`}>
+  <div class="max-w-2xl mx-auto">
+    <section class="text-center mb-10">
+      <div class="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6">
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-[#2584FF] to-[#1A6FD4] rounded-full animate-pulse"
+        >
+        </div>
+        <div class="absolute inset-1 bg-white rounded-full overflow-hidden">
+          <img
+            src={profileImage}
+            alt={`Foto de perfil de ${name}`}
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+      </div>
+
+      <h1
+        class="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 tracking-tight"
+      >
+        {name}
+      </h1>
+
+      <p class="text-base sm:text-lg text-gray-600 font-medium mb-4">
+        {title}
+      </p>
+
+      {
+        description && (
+          <p class="text-sm sm:text-base text-gray-700 leading-relaxed max-w-lg mx-auto">
+            {description}
+          </p>
+        )
+      }
+    </section>
+
+    <section
+      class="space-y-4"
+      aria-label="Enlaces de redes sociales y contacto"
+    >
+      <slot />
+    </section>
+
+    <footer class="text-center mt-12 pt-8 border-t border-gray-200">
+      <p class="text-sm text-gray-500">
+        © {new Date().getFullYear()}
+        {name}. Todos los derechos reservados.
+      </p>
+    </footer>
+  </div>
+</main>
+
+<style>
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>
